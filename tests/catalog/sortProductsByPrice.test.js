@@ -49,6 +49,7 @@ describe('sortProductsByPrice', () => {
   });
   test('направление по умолчанию не меняет исходный массив всех товаров', () => {
     const before = products.map((p) => p.id);
-    expect(before).toEqual(before);
+    sortProductsByPrice(products, '');
+    expect(products.map((p) => p.id)).toEqual(before);
   });
 });
