@@ -1,7 +1,3 @@
-function notImplemented() {
-  throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
-}
-
 function addToCart(cart, product, quantity) {
   if (quantity <= 0) {
     throw new RangeError('Количество товара должно быть больше нуля');
@@ -65,11 +61,11 @@ function calculateCartSubtotal(cart) {
 function calculateOrderTotal(cart, promoCode) {
   const subtotal = calculateCartSubtotal(cart);
 
-  let discount = 0;
-  promoCode === 'SAVE10' && subtotal >= 20000 ? (discount=subtotal * 0.1) : subtotal;
+  const discount = (promoCode === 'SAVE10' && subtotal >= 20000) 
+    ? subtotal * 0.1 
+    : 0;
 
-  let delivery = 0;
-  subtotal >= 50000 ? delivery : (delivery = 30000);
+  const delivery = (subtotal >= 50000) ? 0 : 30000;
 
   const total = subtotal - discount + delivery;
 
