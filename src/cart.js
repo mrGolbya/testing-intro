@@ -49,7 +49,10 @@ function changeQuantity(cart, productId, newQuantity) {
   return newCart;
 }
 
-function removeFromCart() { return notImplemented(); }
+function removeFromCart(cart, productId) { 
+  return cart.filter(el=> el.id !== productId);
+}
+
 function calculateCartSubtotal() { return notImplemented(); }
 function calculateOrderTotal() { return notImplemented(); }
 
